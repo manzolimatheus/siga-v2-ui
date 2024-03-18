@@ -5,7 +5,7 @@ async function callApi({ cpf, password }) {
   "use server";
   const base64 = Buffer.from(`${cpf}:${password}`).toString("base64");
 
-  const response = await fetch("http://localhost:3001/info", {
+  const response = await fetch(`${process.env.API_URL}/info`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
